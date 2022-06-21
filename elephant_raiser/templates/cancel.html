@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Checkout Canceled{% endblock %}
+{% block content %}
+<div class="jumbotron py-0">
+    <div class="alert alert-danger" role="alert">
+        <h1 class="display-4">Payment Canceled!</h1>
+    </div>
+    <p class="lead my-5">Want to raise more other lovely elephants? Look around then come back!</p>
+    <img class="img-cancel rounded float-right" src="{{ url_for('static', filename='img/elephant-cancel.png') }}">
+    <hr class="my-5">
+    <p>Elephant Raiser for all kinds of and this payment method is just for testing purpose. </p>
+    <p class="lead my-5">
+        <a class="btn btn-info btn-lg" href="{{ url_for('home') }}" role="button">Return to Home</a>
+    </p>
+</div>
+{% endblock %}

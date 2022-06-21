@@ -1,0 +1,89 @@
+body {
+  font-family: 'Fredoka One', cursive;
+}
+
+.site {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.site-content {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.navbar {
+  background-color: #e3f2fd;
+  padding: 0 1 rem;
+}
+
+.copyright,
+.declaration {
+  text-align: center;
+}
+
+.row {
+  margin: 2rem 0 0;
+}
+
+a.raised-elephant {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1800px;
+} 
+
+.img-index {
+  width: 18rem;
+  height: auto;
+}
+
+.img-login {
+  width: 50%;
+  height: auto;
+}
+
+.img-success {
+  width: 17%;
+  height: auto;
+}
+
+.img-cancel {
+  width: 25%;
+  height: auto;
+}
+
+.card-img-top {
+  height: 225px;
+  width: 100%;
+  display: block;
+}
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  width: 100%;
+  margin: auto!important;
+  pointer-events: none;
+  vertical-align: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+}
+

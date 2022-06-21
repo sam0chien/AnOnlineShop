@@ -1,0 +1,46 @@
+<!-- Info -->
+<div class="modal fade" id="Modal-MoreInfo-{{ raised_elephant.elephant_id }}" tabindex="-1" role="dialog"
+     aria-labelledby="ModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="ModalMoreInfoLabel">{{ raised_elephant.elephant.name }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Affiliation</h5>
+                        </div>
+                        <p class="mb-1">{{ raised_elephant.elephant.affiliation }}</p>
+                    </li>
+                    <li class="list-group-item flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Species</h5>
+                        </div>
+                        <p class="mb-1">{{ raised_elephant.elephant.species }}</p>
+                    </li>
+                    <li class="list-group-item flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Sex</h5>
+                        </div>
+                        <p class="mb-1">{{ raised_elephant.elephant.sex }}</p>
+                    </li>
+                    <li class="list-group-item flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Note</h5>
+                        </div>
+                        <p class="mb-1">{{ raised_elephant.elephant.note }}</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ raised_elephant.elephant.wikilink }}" class="btn btn-info" target="_blank">Wiki Link</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

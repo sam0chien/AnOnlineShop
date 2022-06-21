@@ -1,0 +1,19 @@
+{% from 'bootstrap/form.html' import render_form %}
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block content %}
+<div class="jumbotron-fluid">
+    <div class="p-5 mb-5 bg-light rounded-3">
+        <h1 class="display-5 fw-bold">Register</h1>
+        <hr>
+        <div class="container-fluid">
+            {{ render_form(form, button_map={'submit': 'success'}) }}
+            <br>
+            <label>Already have an account?
+                <a class="btn btn-outline-primary btn-sm" href="{{ url_for('login') }}">Sign in</a>
+            </label>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

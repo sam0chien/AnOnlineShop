@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="jumbotron py-0">
+    <div class="py-2 bg-light">
+        <div class="container-fluid px-4 py-5">
+            {% if current_user.is_authenticated: %}
+            <h1 class="display-5 fw-bold">Hi {{ current_user.username }}</h1>
+            {% else: %}
+            <h1 class="display-5 fw-bold">Hi there</h1>
+            {% endif %}
+            <p class="lead">Welcome, feel free to explore lovely elephants here.</p>
+            <a class="btn btn-primary btn-lg" href="{{ url_for('browse') }}">Browse</a>
+        </div>
+    </div>
+    {% if not current_user.is_authenticated: %}
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 mb-2 bg-light rounded-3">
+                <h2>Be a Member</h2>
+                <p class="lead">Register to raise your favorite elephant.</p>
+                <a class="btn btn-success float-right" href="{{ url_for('register') }}">Register</a>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 mb-2 bg-info text-white rounded-3">
+                <h2>Already a member?</h2>
+                <p class="lead text-right"><i class="far fa-hand-point-down"></i> <i class="far fa-hand-point-down"></i>
+                    <i
+                            class="far fa-hand-point-down"></i></p>
+                <a class="btn btn-outline-light float-right" href="{{ url_for('login') }}">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% else: %}
+{% endif %}
+{% endblock %}

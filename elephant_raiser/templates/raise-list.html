@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %}Raise List{% endblock %}
+{% block content %}
+{% if is_raised: %}
+<section class="container text-center ">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="display-4 fw-light">Your Raise List</h1>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <h6 class="my-0">Total Elephants</h6>
+                    <span class="badge bg-success rounded-pill">{{ total_elephants }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <h6 class="my-0">Total Amount</h6>
+                    <strong>{{ total_amount }}</strong>
+                </li>
+            </ul>
+            <button class="btn btn-success my-2" id="raise-btn" type="submit">Raise ❤️</button>
+            <a href="{{ url_for('browse') }}" class="btn btn-secondary my-2">Go to Browse</a>
+        </div>
+    </div>
+</section>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for elephant in elephants %}
+            {% include 'includes/elephant-models.html' %}
+            <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="card mb-4 box-shadow text-center">
+                    <div class="card-header">
+                        <h5 class="my-0 font-weight-normal">{{ elephant.name }}</h5>
+                    </div>
+                    <img class="card-img-top"
+                         data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                         alt="Thumbnail [100%x225]" src="{{ elephant.image }}" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">${{ elephant.price }}</p>
+                        <div class="d-flex justify-content-around">
+                            <button type="button" class="btn btn-warning" data-toggle="modal"
+                                    data-target="#Modal-Remove-{{ elephant.id }}">Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else: %}
+            <section class="jumbotron jumbotron-fluid">
+                <div class="py-4 text-center container">
+                    <div class="row py-lg-5 my-4">
+                        <div class="col-lg-5 col-md-8 mx-auto py-5">
+                            <h1 class="fw-light">Your raise list is empty</h1>
+                            <h2 class="lead">How about go see some lovely elephants?</h2>
+                            <a href="{{ url_for('browse') }}" class="btn btn-info my-2">Go to Browse</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+

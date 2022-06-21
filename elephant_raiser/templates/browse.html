@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Browse{% endblock %}
+{% block content %}
+<section class="container">
+    <div class="row py-lg-5">
+        <div class="mx-auto text-center">
+            <h1 class="display-4 fw-light">Browse</h1>
+            <p class="lead">Add your liked one to your <a href="{{ url_for('raise_list') }}" class="text-success">raise
+                list</a>. See more
+                information by clicking <span class="text-info">More Info</span> button.</p>
+        </div>
+    </div>
+</section>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for elephant in elephants %}
+            {% include 'includes/elephant-models.html' %}
+            <div class="col-lg-3 col-md-4 col-sm-6 d-flex">
+                <div class="card mb-4 box-shadow text-center">
+                    <div class="card-header">
+                        <h5 class="my-0 font-weight-normal">{{ elephant.name }}</h5>
+                    </div>
+                    <img class="card-img-top"
+                         data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                         alt="Thumbnail [100%x225]" src="{{ elephant.image }}" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">{{ elephant.note }}</p>
+                        <div class="d-flex justify-content-around">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-outline-info" data-toggle="modal"
+                                        data-target="#Modal-MoreInfo-{{ elephant.id }}">More Info
+                                </button>
+                                {% if not current_user.is_authenticated: %}
+                                <a href="{{ url_for('login') }}" class="btn btn-success">Add to Raise List</a>
+                                {% else: %}
+                                <a href="/add-to-raise-list/{{ elephant.id }}" class="btn btn-success">Add to
+                                    Raise List</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Raise {{ elephant.name }} with ${{ elephant.price }} ❤️</small>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+{% endblock %}
