@@ -6,9 +6,9 @@
         <div class="mx-auto text-center">
             <h1 class="display-4 fw-light">Browse</h1>
 	    {% if not current_user.is_authenticated: %}
-	    <p class="lead">Add your liked one to <a href="{{ url_for('raise_list') }}" class="text-success">Raise Lsit</a>.
+	    <p class="lead"><a href="{{ url_for('login') }}" class="text-primary">Log in</a> to add your liked one to <a href="{{ url_for('login') }}" class="text-success">Raise Lsit</a>.
 	    {% else: %}
-            <p class="lead"><a href="{{ url_for('login') }}" class="text-primary">Log in</a> to add your liked one to <a href="{{ url_for('login') }}" class="text-success">Raise Lsit</a>.
+	    <p class="lead">Add your liked one to <a href="{{ url_for('raise_list') }}" class="text-success">Raise Lsit</a>.
 	    {% endif %}
 	    See more information by clicking <span class="text-info">More Info</span> button.</p>
         </div>
